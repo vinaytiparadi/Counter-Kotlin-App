@@ -2,4 +2,10 @@
     <string name="app_name">Counter</string>
     <string name="iv_description">A simple number image vector.</string>
     <string name="placeholder_text">0</string>
+    <string name="input_hint">Choose a starting number</string>
+    <string name="button_text">submit</string>
+    <string name="random_button_text">submit a random starting number</string>
+    <string name="decrement_button">-</string>
+    <string name="increment_button">+</string>
+    <string name="placeholder_internval_hint">1</string>
 </resources>

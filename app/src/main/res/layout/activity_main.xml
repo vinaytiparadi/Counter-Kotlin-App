@@ -26,6 +26,94 @@
         android:paddingBottom="50dp"
         android:text="@string/placeholder_text"
         android:textAlignment="center"
-        android:textColor="#689F38"
+        android:textColor="#558B2F"
         android:textSize="72sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/main_activity_bt_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/eagle_green"
+            android:fontFamily="@font/ubuntu_mono"
+            android:text="@string/button_text"
+            android:textColor="@color/android_green" />
+
+        <EditText
+            android:id="@+id/editTextNumber2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_mono"
+            android:hint="@string/input_hint"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/may_green"
+            android:textColorHint="@color/may_green" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/main_acitivty_bt_random_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/eagle_green"
+        android:fontFamily="@font/ubuntu_mono"
+        android:text="@string/random_button_text"
+        android:textAlignment="center"
+        android:textColor="@color/android_green" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/main_activity_bt_decrement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/eagle_green"
+            android:fontFamily="@font/ubuntu_mono"
+            android:text="@string/decrement_button"
+            android:textAlignment="center"
+            android:textColor="@color/android_green" />
+
+        <EditText
+            android:id="@+id/main_activity_et_random_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_mono"
+            android:hint="@string/placeholder_internval_hint"
+            android:inputType="numberSigned"
+            android:textAlignment="center"
+            android:textColor="@color/may_green"
+            android:textColorHint="@color/may_green" />
+
+        <Button
+            android:id="@+id/main_activity_bt_increment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/eagle_green"
+            android:fontFamily="@font/ubuntu_mono"
+            android:text="@string/increment_button"
+            android:textAlignment="center"
+            android:textColor="@color/android_green" />
+    </LinearLayout>
+
 </LinearLayout>
