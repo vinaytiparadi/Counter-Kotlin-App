@@ -1,7 +1,10 @@
 package com.lol.counter
 
+import android.content.ContentProviderOperation
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -27,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         //Set click listeners for each buttons
         submitButton.setOnClickListener { submitNumber() }
         randomButton.setOnClickListener { generateRandomNumber() }
-        incrementButton.setOnClickListener { increment() }
-        decrementButton.setOnClickListener { decrement() }
+        incrementButton.setOnClickListener { changeNumber("+") }
+        decrementButton.setOnClickListener { changeNumber("-") }
 
         //Set the values to our views initialized with late-init
         numberText = findViewById(R.id.main_activity_tv_number)
@@ -52,6 +55,8 @@ class MainActivity : AppCompatActivity() {
 
         //Clear editText after pressing submit button
         numberInput.setText("")
+
+        hidekeyboard()
     }
 
     //Generate a random number and display it to the screen
@@ -59,10 +64,12 @@ class MainActivity : AppCompatActivity() {
         //Generate random number from -100 to 100
         val randomNumber = (-100..100).random()
         numberText.text = randomNumber.toString()
+
+
     }
 
-    //Increment a number by given value
-    private fun increment(){
+    //Increment or Decrement a number by a given value
+    private fun changeNumber(operation: String){
         //Get the current number and increment
         val currentNumber = numberText.text.toString().toInt()
         var incrementValue = interval.text.toString()
@@ -72,32 +79,32 @@ class MainActivity : AppCompatActivity() {
             incrementValue="1"
         }
 
-        //Determine new number to the display and display it
-        val newNumber = currentNumber + incrementValue.toInt()
-        numberText.text = newNumber.toString()
+        //Either increment or decrement based on value of operation
+        if (operation=="+"){
+            //Determine new number to the display and display it
+            val newNumber = currentNumber + incrementValue.toInt()
+            numberText.text = newNumber.toString()
 
-        //Update summary msg
-        summary.text="$currentNumber + $incrementValue = $newNumber "
-    }
+            //Update summary msg
+            summary.text="$currentNumber + $incrementValue = $newNumber "
+        }else{
+            //Determine new number to the display and display it
+            val newNumber = currentNumber - incrementValue.toInt()
+            numberText.text=newNumber.toString()
 
-    //Decrement a number by a given value
-    private fun decrement(){
-
-        //Get the current number and increment
-        val currentNumber = numberText.text.toString().toInt()
-        var incrementValue = interval.text.toString()
-
-        //Check if increment value is blank, if so set 1
-        if (incrementValue ==""){
-            incrementValue="1"
+            //Update summary msg
+            summary.text="$currentNumber - $incrementValue = $newNumber  "
         }
 
-        //Determine new number to the display and display it
-        val newNumber = currentNumber - incrementValue.toInt()
-        numberText.text=newNumber.toString()
-
-        //Update summary msg
-        summary.text="$currentNumber - $incrementValue = $newNumber  "
-
+        //Hide the keyboard
+        hidekeyboard()
     }
+
+
+    //Hide the keyboard
+    private fun hidekeyboard(){
+        val imm=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(numberText.windowToken,0)
+    }
+
 }
