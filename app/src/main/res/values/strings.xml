@@ -8,4 +8,5 @@
     <string name="decrement_button">-</string>
     <string name="increment_button">+</string>
     <string name="placeholder_internval_hint">1</string>
+    <string name="placeholder_summary">Your current operattion will be displayed here:</string>
 </resources>
